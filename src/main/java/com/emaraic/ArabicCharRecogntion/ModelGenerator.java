@@ -28,14 +28,22 @@ import org.slf4j.LoggerFactory;
 
 /**
  *
- * @author Taha Emara 
- * Website: http://www.emaraic.com 
- * Email : taha@emaraic.com
- * Created on: Oct 12, 2017
- * This code generates a model for Arabic characters recognition built on this paper 
- * “Arabic Handwritten Characters Recognition using Convolutional Neural Network” by Ahmed El-Sawy, Mohamed Loey, and Hazem EL-Bakry.
- * The original data set from here https://github.com/mloey/Arabic-Handwritten-Characters-Dataset
- * I used a dataset combines the data with its labels in the same file. you can find them in dataset folder  
+ * @author Taha Emara Website: http://www.emaraic.com Email : taha@emaraic.com
+ * Created on: Oct 12, 2017 This code generates a model for Arabic characters
+ * recognition built on this paper “Arabic Handwritten Characters Recognition
+ * using Convolutional Neural Network” by Ahmed El-Sawy, Mohamed Loey, and Hazem
+ * EL-Bakry. 
+ * The original data set from here https://github.com/mloey/Arabic-Handwritten-Characters-Dataset 
+ * I used a dataset combines the data with its labels in the same file. you can find them
+ * (dataset.zip) in dataset folder.
+ * The output of this model gives these scores
+ * ==========================Scores======================================== 
+ * # of classes: 29 Accuracy: 0.9137 
+ * Precision: 0.9186	(1 class excluded from average) 
+ * Recall: 0.9137	(1 class excluded from average)
+ * F1 Score: 0.9139	(1class excluded from average)
+ * Precision, recall & F1: macro-averaged (equally weighted avg. of 29 classes)
+ * ==================================================================
  */
 public class ModelGenerator {
 
@@ -47,14 +55,10 @@ public class ModelGenerator {
     private static final int BATCH_SIZE = 100;
     private static final int ITERATIONS = 1;
     private static final int LABEL_INDEX = 1024;
-    private static final String PATH_TO_TRAINING_DATA="/Users/Emaraic/Temp/ml/ahcd1/csvTrainImages 13440x1024.csv";
-    private static final String PATH_TO_TESTING_DATA="/Users/Emaraic/Temp/ml/ahcd1/csvTestImages 3360x1024.csv";
+    private static final String PATH_TO_TRAINING_DATA = "/Users/Emaraic/Temp/ml/ahcd1/csvTrainImages 13440x1024.csv";
+    private static final String PATH_TO_TESTING_DATA = "/Users/Emaraic/Temp/ml/ahcd1/csvTestImages 3360x1024.csv";
 
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(ModelGenerator.class);
-    
-    
-    
-    
 
     private static DataSetIterator readCSVDataset(String csvFileClasspath, int BATCH_SIZE, int LABEL_INDEX, int numClasses)
             throws IOException, InterruptedException {
@@ -62,7 +66,7 @@ public class ModelGenerator {
         RecordReader rr = new CSVRecordReader();
         rr.initialize(new FileSplit(new File(csvFileClasspath)));
         DataSetIterator iterator = new RecordReaderDataSetIterator(rr, BATCH_SIZE, LABEL_INDEX, numClasses);
-        
+
         return iterator;
     }
 
@@ -72,7 +76,7 @@ public class ModelGenerator {
             DataSetIterator iterator = readCSVDataset(PATH_TO_TRAINING_DATA, BATCH_SIZE, LABEL_INDEX, NUM_LABELS);
 
             DataSetIterator titerator = readCSVDataset(PATH_TO_TESTING_DATA, BATCH_SIZE, LABEL_INDEX, NUM_LABELS);
-            
+
             double dropOut = 0.8;
             MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                     .seed(SEED)
@@ -123,6 +127,7 @@ public class ModelGenerator {
             log.info("Evaluate model....");
             Evaluation eval = model.evaluate(titerator);
             log.info(eval.stats(true));
+
             log.info("Saving model....");
             ModelSerializer.writeModel(model, new File("model.data"), true);
 
