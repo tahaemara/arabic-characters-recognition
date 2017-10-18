@@ -1,4 +1,4 @@
-# Handwritten Arabic Characters Recognition 
+# Arabic Handwritten Characters Recognition 
 
 In this repository, I implemented a proposed CNN in the paper "Arabic Handwritten Characters Recognition using Convolutional Neural Network" by El-Sawy, A., Loey, M., & Hazem, E. B. using Deeplearning4jlibrary.
 
