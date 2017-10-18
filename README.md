@@ -11,7 +11,8 @@ In this repository, I implemented a proposed CNN in the paper "Arabic Handwritte
 
 ### Note
 
-It would take time to train the model. For me, with 2.2 GHz Intel Core i7 on macOS, it takes nearly 1 hour (without GPU support).
+- It would take time to train the model. For me, with 2.2 GHz Intel Core i7 on macOS, it takes nearly 1 hour (without GPU support).
+- For Ubunut (Linux) users use this commend "java -jar ArabicCharactersRecognition.jar " to run ArabicCharactersRecognition.jar executable.
 
 ### Test video
 
