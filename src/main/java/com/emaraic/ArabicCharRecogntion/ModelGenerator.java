@@ -37,13 +37,14 @@ import org.slf4j.LoggerFactory;
  * I used a dataset combines the data with its labels in the same file. you can find them
  * (dataset.zip) in dataset folder.
  * The output of this model gives these scores
- * ==========================Scores======================================== 
- * # of classes: 29 Accuracy: 0.9137 
- * Precision: 0.9186	(1 class excluded from average) 
- * Recall: 0.9137	(1 class excluded from average)
- * F1 Score: 0.9139	(1class excluded from average)
- * Precision, recall & F1: macro-averaged (equally weighted avg. of 29 classes)
- * ==================================================================
+ ==========================Scores========================================
+ # of classes:    29
+ Accuracy:        0.9229
+ Precision:       0.9261	(1 class excluded from average)
+ Recall:          0.9229	(1 class excluded from average)
+ F1 Score:        0.9231	(1 class excluded from average)
+Precision, recall & F1: macro-averaged (equally weighted avg. of 29 classes)
+========================================================================
  */
 public class ModelGenerator {
 
@@ -55,7 +56,7 @@ public class ModelGenerator {
     private static final int BATCH_SIZE = 100;
     private static final int ITERATIONS = 1;
     private static final int LABEL_INDEX = 1024;
-    private static final String PATH_TO_TRAINING_DATA = "/Users/Emaraic/Temp/ml/ahcd1/csvTrainImages 13440x1024.csv";
+    private static final String PATH_TO_TRAINING_DATA = "/Users/Emaraic/Temp/ml/ahcd1/csvTrainImages 13440x1024 shuffeled.csv";
     private static final String PATH_TO_TESTING_DATA = "/Users/Emaraic/Temp/ml/ahcd1/csvTestImages 3360x1024.csv";
 
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(ModelGenerator.class);
@@ -81,7 +82,7 @@ public class ModelGenerator {
             MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                     .seed(SEED)
                     .iterations(ITERATIONS) // Training ITERATIONS as above
-                    .regularization(true)//.l2(0.0000005)
+                    .regularization(true).l2(0.0000005)
                     .learningRate(.001)
                     .weightInit(WeightInit.XAVIER)
                     .miniBatch(true)
