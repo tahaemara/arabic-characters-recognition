@@ -3,7 +3,7 @@
 In this repository, I implemented a proposed CNN in the paper "Arabic Handwritten Characters Recognition using Convolutional Neural Network" by El-Sawy, A., Loey, M., & Hazem, E. B. using Deeplearning4jlibrary.
 
 ### This repository contains:
-- (ModelGenerator.java) to train the model with dataset - I provided it in dataset folder- and serialize the generated model to file (model.data). With existing network parameters, this model give a 91.137% Accuracy. You can tune these parameters to get a better accuracy. 
+- (ModelGenerator.java) to train the model with dataset - I provided it in dataset folder- and serialize the generated model to file (model.data). With existing network parameters, this model give a 92.29% Accuracy. You can tune these parameters to get a better accuracy. 
 - The class TestModel.java is provided to test the generated model and using samples in (test_images) folder.
 - I also provided a GUI application (ArabicCharactersRecognition.jar) in recogniser_executable folder to test the generated model and it gives the best three scores for the input character. 
 
