@@ -18,6 +18,13 @@ In this repository, I implemented a proposed CNN in the paper "Arabic Handwritte
 
 [http://www.emaraic.com/blog/arabic-characters-recognition](http://www.emaraic.com/blog/arabic-characters-recognition)
 
+### To run this project see this video
+
+[https://www.youtube.com/watch?v=CDkdy3BwIqs](https://www.youtube.com/watch?v=CDkdy3BwIqs)
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/CDkdy3BwIqs/0.jpg)](https://www.youtube.com/watch?v=CDkdy3BwIqs)
+
+
 
 ### Test video
 
