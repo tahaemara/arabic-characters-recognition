@@ -28,7 +28,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  *
- * @author Taha Emara Website: http://www.emaraic.com Email : taha@emaraic.com
+ * @author Taha Emara 
+ Website: http://www.emaraic.com 
+ Email : taha@emaraic.com
  * Created on: Oct 12, 2017 This code generates a model for Arabic characters
  * recognition built on this paper “Arabic Handwritten Characters Recognition
  * using Convolutional Neural Network” by Ahmed El-Sawy, Mohamed Loey, and Hazem
